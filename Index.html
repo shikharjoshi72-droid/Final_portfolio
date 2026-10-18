@@ -1,0 +1,1974 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shikhar Joshi — Frontend Web Developer & B.Tech CSE (AI/ML) Student. Interactive Developer Dashboard Portfolio.">
+    <meta name="keywords" content="Shikhar Joshi, Frontend Developer, Web Development, AI ML, Portfolio, SRMU, Smart India Hackathon">
+    <meta name="author" content="Shikhar Joshi">
+    <meta name="theme-color" content="#f8fafc">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Shikhar Joshi | Developer Dashboard Portfolio">
+    <meta property="og:description" content="Explore Shikhar Joshi's interactive portfolio dashboard featuring projects, credentials, marksheets, and engineering skills.">
+    <meta property="og:image" content="Public/profile.jpg">
+    <meta property="og:type" content="website">
+
+    <title>Shikhar Joshi | Developer Dashboard</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           DUAL THEME TOKENS (LIGHT DEFAULT / DARK TOGGLE)
+           ========================================================================== */
+        :root {
+            --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* Clean Modern Light Palette (Default) */
+            --bg-page: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-card: #ffffff;
+            --bg-card-hover: #f1f5f9;
+            --bg-subtle: #f1f5f9;
+            --border-subtle: #e2e8f0;
+            --border-card: #e2e8f0;
+            --border-hover: #2563eb;
+
+            /* Typography */
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --text-subtle: #94a3b8;
+
+            /* Royal Blue & Indigo Accents */
+            --accent: #2563eb;
+            --accent-rgb: 37, 99, 235;
+            --accent-hover: #1d4ed8;
+            --accent-light: #3b82f6;
+            --accent-soft: rgba(37, 99, 235, 0.08);
+            --accent-border: rgba(37, 99, 235, 0.25);
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 12px 28px -4px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+
+            /* Radii & Sizes */
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            --max-width: 1140px;
+            --topbar-height: 68px;
+        }
+
+        /* Sleek Dark Mode Overrides */
+        [data-theme="dark"] {
+            --bg-page: #0a0e17;
+            --bg-surface: #111726;
+            --bg-card: #131c2e;
+            --bg-card-hover: #1b263d;
+            --bg-subtle: #182236;
+            --border-subtle: #1e293b;
+            --border-card: #233047;
+            --border-hover: #3b82f6;
+
+            --text-heading: #f8fafc;
+            --text-body: #cbd5e1;
+            --text-muted: #94a3b8;
+            --text-subtle: #64748b;
+
+            --accent: #3b82f6;
+            --accent-rgb: 59, 130, 246;
+            --accent-hover: #60a5fa;
+            --accent-light: #93c5fd;
+            --accent-soft: rgba(59, 130, 246, 0.14);
+            --accent-border: rgba(59, 130, 246, 0.35);
+
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+            --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.65);
+        }
+
+        /* ==========================================================================
+           RESET & GLOBAL STYLES
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            font-family: var(--font-sans);
+            line-height: 1.65;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-page);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-subtle);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-heading);
+            font-weight: 700;
+            line-height: 1.25;
+            letter-spacing: -0.025em;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin-inline: auto;
+            padding-inline: 20px;
+        }
+
+        /* ==========================================================================
+           TOP APPLICATION HEADER BAR
+           ========================================================================== */
+        .app-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--topbar-height);
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-sm);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .topbar-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand-cluster {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: var(--text-heading);
+            text-decoration: none;
+        }
+
+        .brand-avatar-badge {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+            background: var(--bg-subtle);
+            flex-shrink: 0;
+        }
+
+        .brand-avatar-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand-tag-badge {
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: var(--radius-sm);
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
+        }
+
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-indicator-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 12px;
+            border-radius: var(--radius-full);
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: #059669;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        [data-theme="dark"] .status-indicator-pill {
+            color: #34d399;
+        }
+
+        .pulse-dot-green {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #10b981;
+            position: relative;
+        }
+
+        .pulse-dot-green::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: #10b981;
+            opacity: 0.6;
+            animation: pulseEmerald 2s infinite;
+        }
+
+        @keyframes pulseEmerald {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2.6); opacity: 0; }
+        }
+
+        /* Dark / Light Mode Toggle Button */
+        .theme-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-heading);
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .theme-toggle-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .btn-cta-hire {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: var(--radius-sm);
+            background: var(--accent);
+            color: #ffffff;
+            font-size: 0.86rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-cta-hire:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            color: #ffffff;
+        }
+
+        /* ==========================================================================
+           DASHBOARD HERO PROFILE BANNER (COMPACT & RICH)
+           ========================================================================== */
+        .dashboard-header-card {
+            margin-top: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 28px 32px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .profile-id-group {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .profile-photo-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.25);
+            overflow: hidden;
+            background: var(--bg-subtle);
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo-circle:hover {
+            transform: scale(1.06);
+        }
+
+        .profile-photo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .profile-text-meta h1 {
+            font-size: 1.7rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .dynamic-role-typewriter {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 6px;
+        }
+
+        .cursor-blink {
+            display: inline-block;
+            width: 2px;
+            height: 1.1em;
+            background: var(--accent);
+            animation: blink 0.9s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .profile-location-sub {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .quick-stats-row {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge-box {
+            display: flex;
+            flex-direction: column;
+            border-left: 2px solid var(--border-subtle);
+            padding-left: 14px;
+        }
+
+        .stat-badge-val {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent);
+            font-family: var(--font-mono);
+            line-height: 1.2;
+        }
+
+        .stat-badge-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           SEGMENTED TAB NAVIGATION BAR (DASHBOARD TABS)
+           ========================================================================== */
+        .dashboard-tabs-bar {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-surface);
+            padding: 6px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-sm);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .dashboard-tabs-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-heading);
+            background: var(--bg-subtle);
+        }
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(var(--accent-rgb), 0.3);
+        }
+
+        .tab-btn svg {
+            width: 17px;
+            height: 17px;
+        }
+
+        /* ==========================================================================
+           TAB VIEWS & CONTENT CONTAINERS
+           ========================================================================== */
+        .tab-content-area {
+            margin-top: 24px;
+            margin-bottom: 60px;
+            flex-grow: 1;
+        }
+
+        .tab-pane {
+            display: none;
+            animation: fadeInTab 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeInTab {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dashboard-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .dashboard-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .card-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title-group h2,
+        .card-title-group h3 {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        /* Overview Tab Layout */
+        .overview-two-col {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 24px;
+        }
+
+        .bio-highlight-p {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: var(--text-body);
+            margin-bottom: 16px;
+        }
+
+        /* Projects Cards */
+        .projects-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 22px;
+        }
+
+        .project-dash-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+        }
+
+        .project-dash-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-tag-pill {
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
+            width: fit-content;
+            margin-bottom: 12px;
+        }
+
+        .tech-tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag-chip {
+            font-size: 0.74rem;
+            font-family: var(--font-mono);
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--bg-subtle);
+            color: var(--text-muted);
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* Certificates & Credentials Grid */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-thumb-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+
+        .cert-thumb-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cert-image-holder {
+            position: relative;
+            height: 170px;
+            background: #0f172a;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cert-image-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .cert-thumb-card:hover .cert-image-holder img {
+            transform: scale(1.06);
+        }
+
+        .cert-zoom-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6);
+            display: grid;
+            place-items: center;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .cert-thumb-card:hover .cert-zoom-overlay {
+            opacity: 1;
+        }
+
+        .zoom-lens-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #ffffff;
+            display: grid;
+            place-items: center;
+        }
+
+        .cert-info-wrap {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-grow: 1;
+        }
+
+        .cert-badge-type {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .cert-title-txt {
+            font-size: 1rem;
+            line-height: 1.4;
+            color: var(--text-heading);
+            flex-grow: 1;
+        }
+
+        /* Timeline in Credentials Tab */
+        .timeline-vertical-flow {
+            position: relative;
+            padding-left: 32px;
+            margin-top: 10px;
+        }
+
+        .timeline-vertical-flow::before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 12px;
+            bottom: 18px;
+            width: 2px;
+            background: var(--border-subtle);
+        }
+
+        .timeline-row-item {
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .timeline-row-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot-pin {
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            border: 2px solid var(--accent);
+            display: grid;
+            place-items: center;
+        }
+
+        .timeline-dot-pin::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .timeline-inner-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+        }
+
+        /* Skills Layout */
+        .skills-grid-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-dash-tile {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-sm);
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .skill-dash-tile:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .skill-meter-track {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-subtle);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-meter-fill {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        /* Contact Layout */
+        .contact-tab-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 28px;
+        }
+
+        .contact-info-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-item-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-card);
+        }
+
+        .contact-icon-frame {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-sm);
+            background: var(--accent-soft);
+            color: var(--accent);
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+        }
+
+        .form-input-field {
+            width: 100%;
+            padding: 11px 14px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-heading);
+            font-family: var(--font-sans);
+            font-size: 0.92rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+            margin-bottom: 14px;
+        }
+
+        .form-input-field:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        textarea.form-input-field {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .btn-submit-action {
+            width: 100%;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            background: var(--accent);
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .btn-submit-action:hover {
+            background: var(--accent-hover);
+        }
+
+        .copy-chip-btn {
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            color: var(--accent);
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        /* Generic Action Buttons */
+        .btn-dash {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-dash-primary {
+            background: var(--accent);
+            color: #ffffff;
+            border: none;
+        }
+
+        .btn-dash-primary:hover {
+            background: var(--accent-hover);
+            color: #ffffff;
+        }
+
+        .btn-dash-outline {
+            background: var(--bg-surface);
+            color: var(--text-heading);
+            border: 1px solid var(--border-card);
+        }
+
+        .btn-dash-outline:hover {
+            background: var(--bg-subtle);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* FOOTER */
+        .app-footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border-subtle);
+            background: var(--bg-surface);
+            padding-block: 22px;
+            font-size: 0.86rem;
+            color: var(--text-muted);
+        }
+
+        .footer-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* LIGHTBOX MODAL */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .modal-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-window {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-lg);
+            transform: scale(0.94);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-backdrop.active .modal-window {
+            transform: scale(1);
+        }
+
+        .modal-window-head {
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .modal-close-x {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-subtle);
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            color: var(--text-heading);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+        }
+
+        .modal-close-x:hover {
+            color: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .modal-window-body {
+            padding: 20px;
+            overflow-y: auto;
+            display: grid;
+            place-items: center;
+            background: var(--bg-subtle);
+        }
+
+        .modal-window-body img {
+            max-width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+            border-radius: 6px;
+        }
+
+        .modal-window-foot {
+            padding: 12px 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        /* TOAST */
+        .toast-dash {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            background: var(--text-heading);
+            color: var(--bg-surface);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 3000;
+            transform: translateY(80px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toast-dash.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .dashboard-header-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .quick-stats-row {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .overview-two-col {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-tab-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .profile-id-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .status-indicator-pill {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- TOP APPLICATION BAR -->
+    <header class="app-topbar">
+        <div class="container topbar-inner">
+            <a href="#overview" class="brand-cluster" onclick="switchDashboardTab('overview')">
+                <div class="brand-avatar-badge">
+                    <img src="Public/profile.jpg" alt="SJ" onerror="this.parentElement.innerText='SJ';">
+                </div>
+                <div>
+                    Shikhar Joshi <span class="brand-tag-badge">B.Tech CSE AI/ML</span>
+                </div>
+            </a>
+
+            <div class="topbar-actions">
+                <div class="status-indicator-pill">
+                    <span class="pulse-dot-green"></span>
+                    Available for Work
+                </div>
+
+                <!-- Theme Toggle Button (Light/Dark Mode) -->
+                <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleDashboardTheme()" title="Switch Light/Dark Mode" aria-label="Toggle Theme">
+                    <span id="themeToggleIcon">🌙</span>
+                    <span id="themeToggleLabel">Dark</span>
+                </button>
+
+                <button class="btn-cta-hire" onclick="switchDashboardTab('contact')">
+                    Hire Me
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- DASHBOARD HERO PROFILE BANNER -->
+        <div class="dashboard-header-card">
+            <div class="profile-id-group">
+                <div class="profile-photo-circle" onclick="openLightbox('Public/profile.jpg', 'Shikhar Joshi — Profile Portrait')" title="Click to view photo">
+                    <img src="Public/profile.jpg" alt="Shikhar Joshi" onerror="this.parentElement.innerHTML='<div style=\'display:grid;place-items:center;height:100%;font-size:2rem;font-weight:800;color:var(--accent);\'>SJ</div>'">
+                </div>
+
+                <div class="profile-text-meta">
+                    <h1>Shikhar Joshi</h1>
+                    <div class="dynamic-role-typewriter">
+                        <span>> </span>
+                        <span id="typewriterTarget">Frontend Web Developer</span>
+                        <span class="cursor-blink"></span>
+                    </div>
+                    <div class="profile-location-sub">
+                        <span>📍 Uttar Pradesh, India</span>
+                        <span>·</span>
+                        <span>Shri Ramswaroop Memorial University (SRMU)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats Metrics -->
+            <div class="quick-stats-row">
+                <div class="stat-badge-box">
+                    <span class="stat-badge-val">2nd Year</span>
+                    <span class="stat-badge-label">B.Tech CSE (AI/ML)</span>
+                </div>
+                <div class="stat-badge-box">
+                    <span class="stat-badge-val">SIH 2026</span>
+                    <span class="stat-badge-label">Hackathon Finalist</span>
+                </div>
+                <div class="stat-badge-box">
+                    <span class="stat-badge-val">6+ Awards</span>
+                    <span class="stat-badge-label">State Sports & Honors</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEGMENTED DASHBOARD TABS BAR -->
+        <nav class="dashboard-tabs-bar" role="tablist">
+            <button class="tab-btn active" id="tab-overview" onclick="switchDashboardTab('overview')" role="tab">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                Overview
+            </button>
+            <button class="tab-btn" id="tab-projects" onclick="switchDashboardTab('projects')" role="tab">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                Projects & SIH
+            </button>
+            <button class="tab-btn" id="tab-credentials" onclick="switchDashboardTab('credentials')" role="tab">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Credentials & Marksheets
+            </button>
+            <button class="tab-btn" id="tab-skills" onclick="switchDashboardTab('skills')" role="tab">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Skills & Services
+            </button>
+            <button class="tab-btn" id="tab-contact" onclick="switchDashboardTab('contact')" role="tab">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                Contact & Hire
+            </button>
+        </nav>
+
+        <!-- TAB CONTENT AREA -->
+        <div class="tab-content-area">
+
+            <!-- ==========================================
+                 TAB 1: OVERVIEW
+                 ========================================== -->
+            <div class="tab-pane active" id="pane-overview">
+                <div class="overview-two-col">
+                    <!-- Bio & Core Highlights -->
+                    <div class="dashboard-card">
+                        <div class="card-header-bar">
+                            <div class="card-title-group">
+                                <h3>About Shikhar</h3>
+                            </div>
+                            <span class="brand-tag-badge">Developer Bio</span>
+                        </div>
+
+                        <p class="bio-highlight-p">
+                            Hello! I’m <strong>Shikhar Joshi</strong>, a tech enthusiast and <strong>B.Tech Computer Science & Engineering</strong> 
+                            student with specialization in <strong>Artificial Intelligence and Machine Learning</strong> at Shri Ramswaroop Memorial University.
+                        </p>
+                        <p class="bio-highlight-p">
+                            My focus centers on developing clean, responsive frontend web experiences that load quickly and feel intuitive. 
+                            I also explore how intelligent AI heuristics and threat detection algorithms can be incorporated into web interfaces.
+                        </p>
+                        <p class="bio-highlight-p">
+                            Outside academics, I am a <strong>State-level Kabaddi competition medalist</strong> and avid chess player—passions 
+                            that instill strategic anticipation, agility, and team discipline in everything I build.
+                        </p>
+
+                        <div style="display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+                            <button class="btn-dash btn-dash-primary" onclick="switchDashboardTab('projects')">
+                                Explore Projects
+                                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            </button>
+                            <button class="btn-dash btn-dash-outline" onclick="switchDashboardTab('credentials')">
+                                View Verified Certificates
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Spotlight Card: SIH 2026 Platform -->
+                    <div class="dashboard-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="card-header-bar">
+                                <div class="card-title-group">
+                                    <h3>Spotlight Project</h3>
+                                </div>
+                                <span class="brand-tag-badge" style="background: rgba(16, 185, 129, 0.1); color: #059669; border-color: rgba(16, 185, 129, 0.3);">SIH 2026</span>
+                            </div>
+
+                            <h4 style="font-size: 1.15rem; margin-bottom: 10px;">AI-Powered Email Threat Detection</h4>
+                            <p style="color: var(--text-muted); font-size: 0.94rem; line-height: 1.6; margin-bottom: 16px;">
+                                A national Smart India Hackathon initiative designed to inspect malicious email headers, analyze forensic origins, 
+                                and protect organizations against phishing attacks with AI intelligence.
+                            </p>
+
+                            <div class="tech-tags-list">
+                                <span class="tech-tag-chip">HTML5</span>
+                                <span class="tech-tag-chip">CSS3</span>
+                                <span class="tech-tag-chip">AI Threat Intel</span>
+                                <span class="tech-tag-chip">Forensics</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <a href="https://threatdetection.ai.studio" target="_blank" rel="noopener noreferrer" class="btn-dash btn-dash-primary" style="font-size: 0.85rem; padding: 8px 16px;">
+                                Launch Studio ↗
+                            </a>
+                            <a href="Public/SIH_2026_Certificate_Shikhar Joshi.pdf" target="_blank" rel="noopener noreferrer" class="btn-dash btn-dash-outline" style="font-size: 0.85rem; padding: 8px 16px;">
+                                View Certificate (PDF)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Honors Banner Strip in Overview -->
+                <div class="dashboard-card">
+                    <div class="card-header-bar">
+                        <div class="card-title-group">
+                            <h3>Honors & Athletics Highlights</h3>
+                        </div>
+                        <button class="btn-dash btn-dash-outline" style="padding: 4px 12px; font-size: 0.78rem;" onclick="switchDashboardTab('credentials')">
+                            See All 6 Certificates →
+                        </button>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+                        <div style="padding: 14px; border-radius: var(--radius-sm); background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+                            <span style="font-size: 0.72rem; color: var(--accent); font-weight: 700; text-transform: uppercase;">State Athletics</span>
+                            <h5 style="font-size: 0.95rem; margin-top: 4px;">Third Place — State Kabaddi</h5>
+                        </div>
+                        <div style="padding: 14px; border-radius: var(--radius-sm); background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+                            <span style="font-size: 0.72rem; color: var(--accent); font-weight: 700; text-transform: uppercase;">Championship</span>
+                            <h5 style="font-size: 0.95rem; margin-top: 4px;">1st Position — School Kabaddi</h5>
+                        </div>
+                        <div style="padding: 14px; border-radius: var(--radius-sm); background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+                            <span style="font-size: 0.72rem; color: var(--accent); font-weight: 700; text-transform: uppercase;">Mind Sports</span>
+                            <h5 style="font-size: 0.95rem; margin-top: 4px;">Chess Competition Honor</h5>
+                        </div>
+                        <div style="padding: 14px; border-radius: var(--radius-sm); background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+                            <span style="font-size: 0.72rem; color: var(--accent); font-weight: 700; text-transform: uppercase;">Hackathon</span>
+                            <h5 style="font-size: 0.95rem; margin-top: 4px;">Smart India Hackathon '26</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 TAB 2: PROJECTS & SIH
+                 ========================================== -->
+            <div class="tab-pane" id="pane-projects">
+                <div class="dashboard-card">
+                    <div class="card-header-bar">
+                        <div class="card-title-group">
+                            <h2>Featured Engineering Works</h2>
+                        </div>
+                        <span class="brand-tag-badge">2 Projects</span>
+                    </div>
+
+                    <div class="projects-grid-layout">
+                        <!-- Project 1: SIH Platform -->
+                        <div class="project-dash-card">
+                            <div>
+                                <span class="project-tag-pill">Smart India Hackathon (SIH 2026)</span>
+                                <h3 style="font-size: 1.25rem; margin-bottom: 8px;">AI-Powered Email Threat Detection Platform</h3>
+                                <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.65;">
+                                    Engineered for cybersecurity threat analysis, phishing identification, IP geolocation lookups, and forensic email metadata visualization. 
+                                    Developed to empower rapid-response security operations.
+                                </p>
+                                <div class="tech-tags-list">
+                                    <span class="tech-tag-chip">HTML5</span>
+                                    <span class="tech-tag-chip">Modern CSS</span>
+                                    <span class="tech-tag-chip">AI Threat Intel</span>
+                                    <span class="tech-tag-chip">Cybersecurity</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                <a href="https://threatdetection.ai.studio" target="_blank" rel="noopener noreferrer" class="btn-dash btn-dash-primary">
+                                    Launch Live Studio ↗
+                                </a>
+                                <a href="Public/SIH_2026_Certificate_Shikhar Joshi.pdf" target="_blank" rel="noopener noreferrer" class="btn-dash btn-dash-outline">
+                                    View SIH Certificate (PDF)
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: Developer Dashboard Portfolio -->
+                        <div class="project-dash-card">
+                            <div>
+                                <span class="project-tag-pill" style="background: var(--bg-subtle); color: var(--text-heading); border-color: var(--border-subtle);">Active Project</span>
+                                <h3 style="font-size: 1.25rem; margin-bottom: 8px;">Interactive Developer Dashboard Portfolio</h3>
+                                <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.65;">
+                                    An interactive single-page dashboard featuring live Light/Dark mode switching, tabbed navigation, 
+                                    lightbox certificate viewer, academic marksheet download modules, and clean responsive CSS.
+                                </p>
+                                <div class="tech-tags-list">
+                                    <span class="tech-tag-chip">Dashboard UI</span>
+                                    <span class="tech-tag-chip">Vanilla JS</span>
+                                    <span class="tech-tag-chip">CSS Variables</span>
+                                    <span class="tech-tag-chip">Light/Dark Mode</span>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                <button class="btn-dash btn-dash-primary" onclick="switchDashboardTab('credentials')">
+                                    View Verified Documents
+                                </button>
+                                <button class="btn-dash btn-dash-outline" onclick="switchDashboardTab('skills')">
+                                    View Skills
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 TAB 3: CREDENTIALS & MARKSHEETS
+                 ========================================== -->
+            <div class="tab-pane" id="pane-credentials">
+                <!-- All 6 Certificates with Lightbox -->
+                <div class="dashboard-card">
+                    <div class="card-header-bar">
+                        <div class="card-title-group">
+                            <h2>Verified Certifications & Sports Honors</h2>
+                        </div>
+                        <span class="brand-tag-badge">6 Verified Credentials</span>
+                    </div>
+
+                    <div class="credentials-grid">
+                        <!-- Cert 1: State Kabaddi 3rd Place -->
+                        <div class="cert-thumb-card">
+                            <div class="cert-image-holder" onclick="openLightbox('Public/Cluster.in.jpeg', 'State-Level Kabaddi Competition — 3rd Place Certificate')">
+                                <img src="Public/Cluster.in.jpeg" alt="State Kabaddi 3rd Place" loading="lazy">
+                                <div class="cert-zoom-overlay">
+                                    <div class="zoom-lens-btn">
+                                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cert-info-wrap">
+                                <span class="cert-badge-type">State-Level Athletics</span>
+                                <h4 class="cert-title-txt">Third Place — State-Level Kabaddi Competition</h4>
+                                <a href="javascript:void(0)" onclick="openLightbox('Public/Cluster.in.jpeg', 'State-Level Kabaddi Competition — 3rd Place Certificate')" style="font-size: 0.82rem; font-weight: 600;">Preview Proof ↗</a>
+                            </div>
+                        </div>
+
+                        <!-- Cert 2: New Era Academy Kabaddi 1st Position -->
+                        <div class="cert-thumb-card">
+                            <div class="cert-image-holder" onclick="openLightbox('Public/kabaddi.in.jpeg', 'New Era Academy — 1st Position in Kabaddi (Class XII)')">
+                                <img src="Public/kabaddi.in.jpeg" alt="New Era Academy Kabaddi" loading="lazy">
+                                <div class="cert-zoom-overlay">
+                                    <div class="zoom-lens-btn">
+                                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cert-info-wrap">
+                                <span class="cert-badge-type">Championship</span>
+                                <h4 class="cert-title-txt">First Position — Kabaddi Championship (Class XII)</h4>
+                                <a href="javascript:void(0)" onclick="openLightbox('Public/kabaddi.in.jpeg', 'New Era Academy — 1st Position in Kabaddi (Class XII)')" style="font-size: 0.82rem; font-weight: 600;">Preview Proof ↗</a>
+                            </div>
+                        </div>
+
+                        <!-- Cert 3: Inspirus'24 Kabaddi -->
+                        <div class="cert-thumb-card">
+                            <div class="cert-image-holder" onclick="openLightbox('Public/kabaddi.an.jpeg', 'Inspirus\'24 Mega Sports Fiesta — Inter School Kabaddi')">
+                                <img src="Public/kabaddi.an.jpeg" alt="Inspirus Kabaddi Certificate" loading="lazy">
+                                <div class="cert-zoom-overlay">
+                                    <div class="zoom-lens-btn">
+                                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cert-info-wrap">
+                                <span class="cert-badge-type">Inter-School Sports</span>
+                                <h4 class="cert-title-txt">Inspirus'24 — Inter-School Kabaddi Excellence</h4>
+                                <a href="javascript:void(0)" onclick="openLightbox('Public/kabaddi.an.jpeg', 'Inspirus\'24 Mega Sports Fiesta — Inter School Kabaddi')" style="font-size: 0.82rem; font-weight: 600;">Preview Proof ↗</a>
+                            </div>
+                        </div>
+
+                        <!-- Cert 4: Chess Tournament -->
+                        <div class="cert-thumb-card">
+                            <div class="cert-image-holder" onclick="openLightbox('Public/Chess.in.jpeg', 'Chess Competition Achievement Certificate')">
+                                <img src="Public/Chess.in.jpeg" alt="Chess Tournament Certificate" loading="lazy">
+                                <div class="cert-zoom-overlay">
+                                    <div class="zoom-lens-btn">
+                                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cert-info-wrap">
+                                <span class="cert-badge-type">Mind Sports</span>
+                                <h4 class="cert-title-txt">Chess Tournament Participation Honor</h4>
+                                <a href="javascript:void(0)" onclick="openLightbox('Public/Chess.in.jpeg', 'Chess Competition Achievement Certificate')" style="font-size: 0.82rem; font-weight: 600;">Preview Proof ↗</a>
+                            </div>
+                        </div>
+
+                        <!-- Cert 5: Volleyball Tournament -->
+                        <div class="cert-thumb-card">
+                            <div class="cert-image-holder" onclick="openLightbox('Public/Volly%20ball.in.jpeg', 'Volleyball Tournament Honor Certificate')">
+                                <img src="Public/Volly%20ball.in.jpeg" alt="Volleyball Certificate" loading="lazy">
+                                <div class="cert-zoom-overlay">
+                                    <div class="zoom-lens-btn">
+                                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cert-info-wrap">
+                                <span class="cert-badge-type">Team Athletics</span>
+                                <h4 class="cert-title-txt">Volleyball Tournament Participation</h4>
+                                <a href="javascript:void(0)" onclick="openLightbox('Public/Volly%20ball.in.jpeg', 'Volleyball Tournament Honor Certificate')" style="font-size: 0.82rem; font-weight: 600;">Preview Proof ↗</a>
+                            </div>
+                        </div>
+
+                        <!-- Cert 6: Smart India Hackathon (SIH 2026) -->
+                        <div class="cert-thumb-card">
+                            <div class="cert-image-holder" onclick="window.open('Public/SIH_2026_Certificate_Shikhar Joshi.pdf', '_blank')" style="display: grid; place-items: center; background: var(--bg-subtle);">
+                                <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                                <div class="cert-zoom-overlay">
+                                    <div class="zoom-lens-btn">
+                                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cert-info-wrap">
+                                <span class="cert-badge-type" style="color: #059669;">National Hackathon</span>
+                                <h4 class="cert-title-txt">Smart India Hackathon (SIH 2026)</h4>
+                                <a href="Public/SIH_2026_Certificate_Shikhar Joshi.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.82rem; font-weight: 600;">Open PDF Certificate ↗</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic Timeline & Marksheet PDFs -->
+                <div class="dashboard-card">
+                    <div class="card-header-bar">
+                        <div class="card-title-group">
+                            <h2>Academic Progression & Marksheets</h2>
+                        </div>
+                        <span class="brand-tag-badge">Official Records</span>
+                    </div>
+
+                    <div class="timeline-vertical-flow">
+                        <!-- B.Tech -->
+                        <div class="timeline-row-item">
+                            <div class="timeline-dot-pin"></div>
+                            <div class="timeline-inner-box">
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                                    <h4 style="font-size: 1.15rem;">B.Tech in Computer Science and Engineering (AI & ML)</h4>
+                                    <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--accent); font-weight: 600;">Currently Studying · 2nd Year</span>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 12px;">
+                                    <strong>Shri Ramswaroop Memorial University (SRMU)</strong> · Uttar Pradesh, India
+                                </p>
+
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <a href="Public/SRM_UNOF_SP.pdf" target="_blank" rel="noopener noreferrer" class="btn-dash btn-dash-outline" style="font-size: 0.84rem; padding: 7px 14px;">
+                                        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg>
+                                        Semester 1 Marksheet (PDF)
+                                    </a>
+                                    <a href="Public/SRMU _2 sem.pdf" target="_blank" rel="noopener noreferrer" class="btn-dash btn-dash-outline" style="font-size: 0.84rem; padding: 7px 14px;">
+                                        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg>
+                                        Semester 2 Marksheet (PDF)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 12th Grade -->
+                        <div class="timeline-row-item">
+                            <div class="timeline-dot-pin"></div>
+                            <div class="timeline-inner-box">
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                                    <h4 style="font-size: 1.15rem;">Senior Secondary (12th Grade)</h4>
+                                    <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">2024 – 2025</span>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.92rem; margin: 0;">
+                                    <strong>New Era Academy</strong> · Focus on Science, Mathematics, and Computer Science fundamentals.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- 10th Grade -->
+                        <div class="timeline-row-item">
+                            <div class="timeline-dot-pin"></div>
+                            <div class="timeline-inner-box">
+                                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                                    <h4 style="font-size: 1.15rem;">Secondary School (10th Grade)</h4>
+                                    <span style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">2022 – 2023</span>
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.92rem; margin: 0;">
+                                    <strong>St. Gabriel Convent School</strong> · Completed with distinction in science and analytical curricula.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 TAB 4: SKILLS & SERVICES
+                 ========================================== -->
+            <div class="tab-pane" id="pane-skills">
+                <!-- Skills Matrix -->
+                <div class="dashboard-card">
+                    <div class="card-header-bar">
+                        <div class="card-title-group">
+                            <h2>Skills & Competencies</h2>
+                        </div>
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="skillFilterBar">
+                            <button class="btn-dash btn-dash-primary" style="padding: 4px 12px; font-size: 0.78rem;" onclick="filterSkillGrid('all', this)">All</button>
+                            <button class="btn-dash btn-dash-outline" style="padding: 4px 12px; font-size: 0.78rem;" onclick="filterSkillGrid('frontend', this)">Frontend</button>
+                            <button class="btn-dash btn-dash-outline" style="padding: 4px 12px; font-size: 0.78rem;" onclick="filterSkillGrid('languages', this)">Languages</button>
+                            <button class="btn-dash btn-dash-outline" style="padding: 4px 12px; font-size: 0.78rem;" onclick="filterSkillGrid('design', this)">Design & Tools</button>
+                        </div>
+                    </div>
+
+                    <div class="skills-grid-box" id="skillsMatrix">
+                        <!-- HTML5 -->
+                        <div class="skill-dash-tile" data-cat="frontend">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: var(--text-heading);">HTML5</strong>
+                                <span class="brand-tag-badge">Intermediate</span>
+                            </div>
+                            <div class="skill-meter-track"><div class="skill-meter-fill" style="width: 85%;"></div></div>
+                        </div>
+
+                        <!-- CSS3 -->
+                        <div class="skill-dash-tile" data-cat="frontend">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: var(--text-heading);">CSS3 & Responsive</strong>
+                                <span class="brand-tag-badge">Intermediate</span>
+                            </div>
+                            <div class="skill-meter-track"><div class="skill-meter-fill" style="width: 80%;"></div></div>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <div class="skill-dash-tile" data-cat="frontend languages">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: var(--text-heading);">JavaScript (ES6+)</strong>
+                                <span class="brand-tag-badge">Learning</span>
+                            </div>
+                            <div class="skill-meter-track"><div class="skill-meter-fill" style="width: 65%;"></div></div>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="skill-dash-tile" data-cat="languages">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: var(--text-heading);">Python</strong>
+                                <span class="brand-tag-badge">Intermediate</span>
+                            </div>
+                            <div class="skill-meter-track"><div class="skill-meter-fill" style="width: 75%;"></div></div>
+                        </div>
+
+                        <!-- Java -->
+                        <div class="skill-dash-tile" data-cat="languages">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: var(--text-heading);">Java</strong>
+                                <span class="brand-tag-badge">Intermediate</span>
+                            </div>
+                            <div class="skill-meter-track"><div class="skill-meter-fill" style="width: 70%;"></div></div>
+                        </div>
+
+                        <!-- C -->
+                        <div class="skill-dash-tile" data-cat="languages">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: var(--text-heading);">C Language</strong>
+                                <span class="brand-tag-badge">Intermediate</span>
+                            </div>
+                            <div class="skill-meter-track"><div class="skill-meter-fill" style="width: 72%;"></div></div>
+                        </div>
+
+                        <!-- UI/UX Design -->
+                        <div class="skill-dash-tile" data-cat="design">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: var(--text-heading);">UI/UX & Figma</strong>
+                                <span class="brand-tag-badge">Learning</span>
+                            </div>
+                            <div class="skill-meter-track"><div class="skill-meter-fill" style="width: 65%;"></div></div>
+                        </div>
+
+                        <!-- Responsive Architecture -->
+                        <div class="skill-dash-tile" data-cat="frontend design">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong style="color: var(--text-heading);">Responsive Web Design</strong>
+                                <span class="brand-tag-badge">Intermediate</span>
+                            </div>
+                            <div class="skill-meter-track"><div class="skill-meter-fill" style="width: 82%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Offered -->
+                <div class="dashboard-card">
+                    <div class="card-header-bar">
+                        <div class="card-title-group">
+                            <h2>Services & Technical Offerings</h2>
+                        </div>
+                        <span class="brand-tag-badge">What I Can Do</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+                        <div style="padding: 22px; border-radius: var(--radius-sm); background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+                            <h4 style="font-size: 1.15rem; margin-bottom: 8px;">Modern Website Development</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                                Creating fast, semantic HTML5/CSS3/JavaScript websites tailored for smooth performance across all devices.
+                            </p>
+                        </div>
+
+                        <div style="padding: 22px; border-radius: var(--radius-sm); background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+                            <h4 style="font-size: 1.15rem; margin-bottom: 8px;">Portfolio & Dashboard Design</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                                Designing high-converting developer portfolios, landing pages, and interactive UI dashboards.
+                            </p>
+                        </div>
+
+                        <div style="padding: 22px; border-radius: var(--radius-sm); background: var(--bg-surface); border: 1px solid var(--border-subtle);">
+                            <h4 style="font-size: 1.15rem; margin-bottom: 8px;">Website Optimization & Maintenance</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                                Auditing existing websites to fix layout bugs, enhance CSS styling, and improve overall responsiveness.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==========================================
+                 TAB 5: CONTACT & HIRE
+                 ========================================== -->
+            <div class="tab-pane" id="pane-contact">
+                <div class="dashboard-card">
+                    <div class="card-header-bar">
+                        <div class="card-title-group">
+                            <h2>Get In Touch</h2>
+                        </div>
+                        <span class="brand-tag-badge">Direct Inquiries</span>
+                    </div>
+
+                    <div class="contact-tab-layout">
+                        <!-- Left Details -->
+                        <div class="contact-info-panel">
+                            <p style="color: var(--text-body); font-size: 0.98rem; line-height: 1.65; margin-bottom: 6px;">
+                                Have an internship, freelance project, or collaboration in mind? Feel free to connect directly via email, phone, or send a message using the form.
+                            </p>
+
+                            <div class="contact-item-row">
+                                <div class="contact-icon-frame">
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                </div>
+                                <div>
+                                    <span style="font-size: 0.74rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Email Address</span>
+                                    <div>
+                                        <a href="mailto:shikharjoshi@gmail.com" id="contactEmailStr" style="font-weight: 600;">shikharjoshi@gmail.com</a>
+                                        <button class="copy-chip-btn" onclick="copyEmailToClipboard()">Copy</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-item-row">
+                                <div class="contact-icon-frame">
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                </div>
+                                <div>
+                                    <span style="font-size: 0.74rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Phone Number</span>
+                                    <div>
+                                        <a href="tel:+919876543210" style="font-weight: 600;">+91 98765 43210</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-item-row">
+                                <div class="contact-icon-frame">
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                </div>
+                                <div>
+                                    <span style="font-size: 0.74rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Location</span>
+                                    <div style="font-weight: 600; color: var(--text-heading);">
+                                        Uttar Pradesh, India
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Form -->
+                        <div style="background: var(--bg-surface); padding: 24px; border-radius: var(--radius-sm); border: 1px solid var(--border-card);">
+                            <form id="dashboardContactForm" onsubmit="handleFormSubmission(event)">
+                                <label style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--text-heading);" for="inputSenderName">Your Name</label>
+                                <input type="text" id="inputSenderName" class="form-input-field" placeholder="e.g. Rahul Sharma" required>
+
+                                <label style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--text-heading);" for="inputSenderEmail">Email Address</label>
+                                <input type="email" id="inputSenderEmail" class="form-input-field" placeholder="rahul@example.com" required>
+
+                                <label style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--text-heading);" for="inputMsgSubject">Subject</label>
+                                <input type="text" id="inputMsgSubject" class="form-input-field" placeholder="Internship / Web Project Inquiry" required>
+
+                                <label style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px; color: var(--text-heading);" for="inputMsgBody">Your Message</label>
+                                <textarea id="inputMsgBody" class="form-input-field" placeholder="Type your message here..." required></textarea>
+
+                                <button type="submit" class="btn-submit-action">
+                                    Send Message
+                                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+        <div class="container footer-flex">
+            <div>
+                <strong>Shikhar Joshi</strong> — Frontend Web Developer · B.Tech CSE (AI & ML).
+            </div>
+            <div>
+                © 2026 All rights reserved. Built with passion & clean code.
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX MODAL FOR CERTIFICATES -->
+    <div class="modal-backdrop" id="modalBackdrop" onclick="closeLightbox(event)">
+        <div class="modal-window" onclick="event.stopPropagation()">
+            <div class="modal-window-head">
+                <h4 style="font-size: 1.05rem;" id="modalCaption">Certificate Preview</h4>
+                <button class="modal-close-x" onclick="closeLightbox()" aria-label="Close">✕</button>
+            </div>
+            <div class="modal-window-body">
+                <img id="modalPreviewImg" src="" alt="Proof Preview">
+            </div>
+            <div class="modal-window-foot">
+                <a id="modalDownloadBtn" href="" target="_blank" class="btn-dash btn-dash-outline" style="font-size: 0.82rem; padding: 6px 14px;" download>
+                    Open Original Image ↗
+                </a>
+                <button class="btn-dash btn-dash-primary" style="font-size: 0.82rem; padding: 6px 14px;" onclick="closeLightbox()">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-dash" id="toastDashboard">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        <span id="toastDashboardMsg">Success</span>
+    </div>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // 1. Dashboard Tab Switcher
+        function switchDashboardTab(tabName) {
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.getElementById('tab-' + tabName);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            // Update panes
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            const activePane = document.getElementById('pane-' + tabName);
+            if (activePane) activePane.classList.add('active');
+
+            // Update URL hash
+            window.location.hash = tabName;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize tab from URL hash if provided
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById('pane-' + hash)) {
+                switchDashboardTab(hash);
+            }
+        });
+
+        // 2. Dual Theme Switcher (Light Default / Dark Toggle)
+        function toggleDashboardTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = (currentTheme === 'light') ? 'dark' : 'light';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('portfolio_theme', newTheme);
+
+            const icon = document.getElementById('themeToggleIcon');
+            const label = document.getElementById('themeToggleLabel');
+
+            if (newTheme === 'dark') {
+                icon.textContent = '☀️';
+                label.textContent = 'Light';
+                showToastNotification("Switched to Sleek Dark Mode!");
+            } else {
+                icon.textContent = '🌙';
+                label.textContent = 'Dark';
+                showToastNotification("Switched to Clean Light Mode!");
+            }
+        }
+
+        // Restore saved theme preference if any
+        const savedTheme = localStorage.getItem('portfolio_theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            const icon = document.getElementById('themeToggleIcon');
+            const label = document.getElementById('themeToggleLabel');
+            if (icon) icon.textContent = '☀️';
+            if (label) label.textContent = 'Light';
+        }
+
+        // 3. Dynamic Typewriter Effect in Hero Banner
+        const typewriterTarget = document.getElementById('typewriterTarget');
+        const roles = [
+            "Frontend Web Developer",
+            "B.Tech CSE (AI & ML) Student",
+            "Smart India Hackathon Finalist",
+            "State-Level Sports Medalist",
+            "UI/UX Design Craftsman"
+        ];
+        let roleIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        let typingDelay = 90;
+
+        function typeLoop() {
+            if (!typewriterTarget) return;
+            const currentRole = roles[roleIdx];
+            if (isDeleting) {
+                typewriterTarget.textContent = currentRole.substring(0, charIdx - 1);
+                charIdx--;
+                typingDelay = 40;
+            } else {
+                typewriterTarget.textContent = currentRole.substring(0, charIdx + 1);
+                charIdx++;
+                typingDelay = 95;
+            }
+
+            if (!isDeleting && charIdx === currentRole.length) {
+                isDeleting = true;
+                typingDelay = 1800;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                roleIdx = (roleIdx + 1) % roles.length;
+                typingDelay = 350;
+            }
+            setTimeout(typeLoop, typingDelay);
+        }
+        typeLoop();
+
+        // 4. Skills Category Filtering
+        function filterSkillGrid(category, btnElem) {
+            const container = document.getElementById('skillFilterBar');
+            if (container) {
+                container.querySelectorAll('button').forEach(b => {
+                    b.className = 'btn-dash btn-dash-outline';
+                });
+            }
+            if (btnElem) {
+                btnElem.className = 'btn-dash btn-dash-primary';
+            }
+
+            const tiles = document.querySelectorAll('.skill-dash-tile');
+            tiles.forEach(tile => {
+                const cats = tile.getAttribute('data-cat') || '';
+                if (category === 'all' || cats.includes(category)) {
+                    tile.style.display = 'flex';
+                } else {
+                    tile.style.display = 'none';
+                }
+            });
+        }
+
+        // 5. Lightbox Modal
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const modalPreviewImg = document.getElementById('modalPreviewImg');
+        const modalCaption = document.getElementById('modalCaption');
+        const modalDownloadBtn = document.getElementById('modalDownloadBtn');
+
+        function openLightbox(src, title) {
+            if (!modalBackdrop) return;
+            modalPreviewImg.src = src;
+            modalCaption.textContent = title || "Credential Preview";
+            modalDownloadBtn.href = src;
+            modalBackdrop.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(e) {
+            if (e && e.target !== modalBackdrop && !e.target.classList.contains('modal-close-x')) return;
+            if (modalBackdrop) {
+                modalBackdrop.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalBackdrop && modalBackdrop.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // 6. Copy Email
+        function copyEmailToClipboard() {
+            const email = document.getElementById('contactEmailStr').textContent.trim();
+            navigator.clipboard.writeText(email).then(() => {
+                showToastNotification("Email address copied to clipboard!");
+            }).catch(() => {
+                showToastNotification("Failed to copy. Please select manually.");
+            });
+        }
+
+        // 7. Toast Message
+        let toastTimeout;
+        function showToastNotification(msg) {
+            const toast = document.getElementById('toastDashboard');
+            const toastMsg = document.getElementById('toastDashboardMsg');
+            if (!toast || !toastMsg) return;
+            toastMsg.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // 8. Contact Form Submit
+        function handleFormSubmission(e) {
+            e.preventDefault();
+            const name = document.getElementById('inputSenderName').value;
+            showToastNotification(`Thank you, ${name}! Your message has been sent.`);
+            document.getElementById('dashboardContactForm').reset();
+        }
+    </script>
+</body>
+</html>
